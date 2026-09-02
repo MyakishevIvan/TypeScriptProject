@@ -122,11 +122,11 @@ Page Object должен содержать locators:
 
 Методы:
 
-```ts
+```text
 open(): Promise<void>
 ```
 
-```ts
+```text
 login(credentials: Credentials): Promise<void>
 ```
 
@@ -138,19 +138,19 @@ Credentials передаются одним объектом, а не двумя
 
 Реализовать:
 
-```ts
+```text   
 getProduct(name: string): Locator
 ```
 
-```ts
+```text
 addProductToCart(name: string): Promise<void>
 ```
 
-```ts
+```text
 openCart(): Promise<void>
 ```
 
-```ts
+```text
 getCartBadge(): Locator
 ```
 
@@ -178,17 +178,17 @@ Add to cart
 
 Реализовать:
 
-```ts
+```text
 getProduct(name: string): Locator
 ```
 
-```ts
+```text
 checkout(): Promise<void>
 ```
 
 Тест должен иметь возможность сделать:
 
-```ts
+```text
 await expect(
     cartPage.getProduct(productName)
 ).toBeVisible();
@@ -202,7 +202,7 @@ await expect(
 
 Рекомендуется создать отдельную модель:
 
-```ts
+```text
 interface Customer {
     firstName: string;
     lastName: string;
@@ -212,17 +212,17 @@ interface Customer {
 
 и использовать:
 
-```ts
+```text
 fillCustomerInfo(customer: Customer): Promise<void>
 ```
 
 Также реализовать:
 
-```ts
+```text
 continue(): Promise<void>
 ```
 
-```ts
+```text
 finish(): Promise<void>
 ```
 
@@ -232,11 +232,11 @@ finish(): Promise<void>
 
 ## 8. Custom fixtures
 
-Создать `fixtures/test.ts`.
+Создать `fixtures/test.text`.
 
 Тип fixtures:
 
-```ts
+```text
 type AppFixtures = {
     loginPage: LoginPage;
     inventoryPage: InventoryPage;
@@ -247,7 +247,7 @@ type AppFixtures = {
 
 Расширить Playwright Test:
 
-```ts
+```text
 base.extend<AppFixtures>()
 ```
 
@@ -255,7 +255,7 @@ Page Objects должны создаваться fixtures и передават�
 
 Ожидаемый стиль теста:
 
-```ts
+```text
 test("...", async ({
     loginPage,
     inventoryPage
@@ -266,7 +266,7 @@ test("...", async ({
 
 Из fixture-файла экспортировать:
 
-```ts
+```text
 test
 expect
 ```
@@ -291,7 +291,7 @@ Verify inventory URL
 
 Использовать:
 
-```ts
+```text
 await expect(page).toHaveURL(...)
 ```
 
@@ -351,7 +351,7 @@ Verify selected product is visible
 
 Название товара задается в тесте:
 
-```ts
+```text
 const productName = "...";
 ```
 
@@ -363,7 +363,7 @@ const productName = "...";
 
 Использовать массив товаров:
 
-```ts
+```text
 const products = [
     "...",
     "..."
@@ -400,7 +400,7 @@ Verify success message
 
 Для добавления товаров использовать последовательный цикл:
 
-```ts
+```text
 for (const product of products) {
     await inventoryPage.addProductToCart(product);
 }
@@ -416,7 +416,7 @@ for (const product of products) {
 
 Login tests сгруппировать:
 
-```ts
+```text
 test.describe("Login", () => {
     // tests
 });
@@ -424,7 +424,7 @@ test.describe("Login", () => {
 
 Если все login tests начинают с открытия login page, можно использовать:
 
-```ts
+```text
 test.beforeEach(async ({ loginPage }) => {
     await loginPage.open();
 });
@@ -451,7 +451,7 @@ Verify order
 
 В проекте потренировать минимум:
 
-```ts
+```text
 toHaveURL()
 toBeVisible()
 toHaveText()
@@ -462,13 +462,13 @@ toHaveCount()
 
 Например:
 
-```ts
+```text
 await expect(locator).toBeVisible();
 ```
 
 предпочтительнее:
 
-```ts
+```text
 expect(await locator.isVisible()).toBe(true);
 ```
 
@@ -504,13 +504,13 @@ XPath использовать только при реальной необхо
 
 Не использовать hard sleeps:
 
-```ts
+```text
 await page.waitForTimeout(...);
 ```
 
 Ждать нужно конкретное состояние:
 
-```ts
+```text
 await expect(locator).toBeVisible();
 ```
 
@@ -520,7 +520,7 @@ await expect(locator).toBeVisible();
 
 Не забывать `await` у асинхронных Playwright-операций:
 
-```ts
+```text
 await page.goto(...);
 await locator.click();
 await locator.fill(...);
@@ -570,7 +570,7 @@ Test 3 deletes the same data
 
 Предпочитать:
 
-```ts
+```text
 const
 ```
 
@@ -578,13 +578,13 @@ const
 
 Для типов:
 
-```ts
+```text
 import type { Credentials } from "../models/Credentials";
 ```
 
 Для runtime-сущностей:
 
-```ts
+```text
 import { LoginPage } from "../pages/LoginPage";
 ```
 
@@ -596,7 +596,7 @@ import { LoginPage } from "../pages/LoginPage";
 
 Потренировать:
 
-```ts
+```text
 request.get(...)
 response.ok()
 response.status()
