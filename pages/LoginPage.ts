@@ -1,7 +1,7 @@
 import {Locator, Page} from "@playwright/test";
 import {Credentials} from "../models/Credentials";
 
-class LoginPage {
+export class LoginPage {
     private readonly username: Locator;
     private readonly password: Locator;
     private readonly loginButton: Locator;
@@ -9,9 +9,9 @@ class LoginPage {
     private readonly page: Page;
 
     constructor(page: Page) {
-        this.username = page.getByRole("textbox", { name: "Username" });
-        this.password = page.getByRole("textbox", { name: "Password" });
-        this.loginButton = page.getByRole("button", { name: "Login" });
+        this.username = page.getByRole("textbox", {name: "Username"});
+        this.password = page.getByRole("textbox", {name: "Password"});
+        this.loginButton = page.getByRole("button", {name: "Login"});
         this.errorMessage = page.getByTestId("error")
         this.page = page;
     }

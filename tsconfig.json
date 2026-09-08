@@ -9,10 +9,7 @@
     "outDir": "dist"
   },
   "include": [
-    "pages/**/*.ts",
-    "models/**/*.ts",
-    "tests/**/*.ts",
-    "playwright.config.ts"
+    "**/*"
   ],
   "exclude": [
     "node_modules",

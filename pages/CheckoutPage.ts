@@ -1,7 +1,7 @@
 import {Page} from "@playwright/test";
 import {Customer} from "../models/Customer";
 
-class CheckoutPage {
+export class CheckoutPage {
     private readonly page: Page;
 
     constructor(page: Page) {

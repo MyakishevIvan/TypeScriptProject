@@ -1,6 +1,6 @@
 import {Locator, Page} from "@playwright/test";
 
-class InventoryPage {
+export class InventoryPage {
     private readonly page: Page
 
     constructor(page: Page) {

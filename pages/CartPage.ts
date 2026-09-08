@@ -1,6 +1,6 @@
 import {Locator, Page} from "@playwright/test";
 
-class CartPage {
+export class CartPage {
     private readonly page: Page
 
     constructor(page: Page) {
