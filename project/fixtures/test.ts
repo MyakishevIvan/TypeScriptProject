@@ -9,7 +9,7 @@ type AppFixtures = {
     cartPage: CartPage,
 }
 
-const test = base.extend<AppFixtures>(
+export const test = base.extend<AppFixtures>(
     {
         loginPage: async ({page}, use) => {
             const loginPage = new LoginPage(page);
@@ -30,4 +30,8 @@ const test = base.extend<AppFixtures>(
     }
 )
 
-export  {expect} from "@playwright/test"
+test.beforeEach(async ({loginPage}) => {
+    await loginPage.open()
+})
+
+export {expect} from "@playwright/test"

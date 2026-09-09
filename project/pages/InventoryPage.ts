@@ -7,8 +7,8 @@ export class InventoryPage {
         this.page = page
     }
 
-    getProduct(name: string): Locator {
-        return this.page.getByLabel(name);
+    private getProduct(name: string): Locator {
+        return this.page.getByTestId("inventory-item").filter({hasText: name});
     }
 
     getCartBadge(): Locator {

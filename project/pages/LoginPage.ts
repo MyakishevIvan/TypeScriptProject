@@ -2,10 +2,10 @@ import {Locator, Page} from "@playwright/test";
 import {Credentials} from "../models/Credentials";
 
 export class LoginPage {
-    private readonly username: Locator;
+    public readonly username: Locator;
     private readonly password: Locator;
-    private readonly loginButton: Locator;
-    private readonly errorMessage: Locator;
+    public readonly loginButton: Locator;
+    public readonly errorMessage: Locator;
     private readonly page: Page;
 
     constructor(page: Page) {
