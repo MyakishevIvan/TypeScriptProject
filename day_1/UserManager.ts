@@ -23,7 +23,7 @@ class UserManager {
 
     removeUser(id: string) {
         const user = this.findUser(id);
-        this.users.filter(result => result.id !== user.id);
+        this.users = this.users.filter(result => result.id !== user.id);
     }
 
     getActiveUsers(): User[] {
