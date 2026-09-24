@@ -1,5 +1,6 @@
 import {Product} from "./Product";
 import {ProductCategory} from "./ProductCategory";
+import {totalmem} from "node:os";
 
 class ProductManager {
     private products: Product[] = []
@@ -31,10 +32,11 @@ class ProductManager {
     }
 
     getTotalStock(): number {
-        return this.products.length;
+        return this.products.reduce((total, item) =>
+            (total + item.stock), 0);
     }
 
-    getProductDescription(productId: number): string{
+    getProductDescription(productId: number): string {
         const result = this.products.find((result) => result.id === productId);
         return result?.description ?? "No description";
     }

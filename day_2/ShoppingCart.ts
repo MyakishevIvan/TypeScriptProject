@@ -32,7 +32,7 @@ class ShoppingCart {
         if (quantity > cartItem.product.stock) {
             throw new Error("Quantity must be less than stock value");
         }
-        cartItem.quantity += quantity
+        cartItem.quantity = quantity
     }
 
     findProductById(productId: number): CartItem {
