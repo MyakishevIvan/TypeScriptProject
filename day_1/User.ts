@@ -10,6 +10,8 @@ export class User implements UserProfile {
     address: string | undefined;
     age: number | undefined;
     phone: string | undefined;
+    isAdmin: boolean = false;
+    permissions: string[] = [];
 
     constructor(id: string, name: string, email: string, role: UserRole) {
         this.id = id;
